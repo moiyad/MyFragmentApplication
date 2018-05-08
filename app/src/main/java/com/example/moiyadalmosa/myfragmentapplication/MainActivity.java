@@ -1,5 +1,6 @@
 package com.example.moiyadalmosa.myfragmentapplication;
 
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String name ;
+    private String name;
     private List<Book> bookArray;
 
     @Override
@@ -15,24 +16,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bookArray =new ArrayList<>();
+        bookArray = new ArrayList<>();
 
-        getFragmentManager().beginTransaction().replace(R.id.frameLayout,new loginFragment(),"login").commit();
+        getFragmentManager().beginTransaction().replace(R.id.frameLayout, new LoginFragment(), "login").commit();
     }
 
-    public void setName(String n){
+    public void setName(String n) {
         name = n;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void addBook(Book book){
+    public void addBook(Book book) {
         bookArray.add(book);
     }
 
-    public List<Book> getBookList(){
+    @Override
+    public void onBackPressed() {
+        Fragment f = getFragmentManager().findFragmentById(R.id.frameLayout);
+        if (f instanceof ShowFragment) {
+            getFragmentManager().beginTransaction().replace(R.id.frameLayout, new InterestFragment(), "intrest").commit();
+        } else if (f instanceof InterestFragment) {
+            getFragmentManager().beginTransaction().replace(R.id.frameLayout, new LoginFragment(), "login").commit();
+        } else
+            super.onBackPressed();
+    }
+
+    public List<Book> getBookList() {
         return bookArray;
     }
 }

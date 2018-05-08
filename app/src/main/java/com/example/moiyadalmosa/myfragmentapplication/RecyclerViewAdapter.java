@@ -19,8 +19,8 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    private Context mContext ;
-    private List<Book> mData ;
+    private Context mContext;
+    private List<Book> mData;
 
 
     public RecyclerViewAdapter(Context mContext, List<Book> mData) {
@@ -32,31 +32,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view ;
+        View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
-        view = mInflater.inflate(R.layout.cardveiw_item_book,parent,false);
+        view = mInflater.inflate(R.layout.cardveiw_item_book, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-
         holder.tv_book_title.setText(mData.get(position).getTitle());
         holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-                holder.img_book_thumbnail.setImageResource(R.drawable.ic_launcher_background);
+                ((MainActivity) mContext).addBook(mData.get(position));
+                holder.img_book_thumbnail.setColorFilter(Color.argb(150, 0, 255, 0));
+                holder.img_book_thumbnail.setAdjustViewBounds(true);
 
             }
         });
-        }
-
-
-
+    }
 
 
     @Override
@@ -68,14 +64,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView tv_book_title;
         ImageView img_book_thumbnail;
-        CardView cardView ;
+        CardView cardView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            tv_book_title = itemView.findViewById(R.id.event_name) ;
+            tv_book_title = itemView.findViewById(R.id.event_name);
             img_book_thumbnail = itemView.findViewById(R.id.book_img_id);
-            cardView =  itemView.findViewById(R.id.cardview_id);
+            cardView = itemView.findViewById(R.id.cardview_id);
 
 
         }

@@ -1,24 +1,19 @@
 package com.example.moiyadalmosa.myfragmentapplication;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class interestFragment extends Fragment {
+public class InterestFragment extends Fragment {
     private List<Book> lstBook ;
     MainActivity mainActivity;
 
@@ -59,14 +54,14 @@ public class interestFragment extends Fragment {
         lstBook.add(new Book("He Died with...","Categorie Book","Description book",R.drawable.hediedwith));
 
         RecyclerView myrv =  view.findViewById(R.id.recycel_view);
-        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getContext(),lstBook);
+        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(),lstBook);
         myrv.setLayoutManager(new GridLayoutManager(getContext(),3));
         myrv.setAdapter(myAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new showFragment(),"show").commit();
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new ShowFragment(),"show").commit();
 
             }
         });

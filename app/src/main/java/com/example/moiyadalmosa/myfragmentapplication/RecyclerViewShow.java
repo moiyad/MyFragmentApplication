@@ -13,13 +13,13 @@ import java.util.List;
 
 
 
-public class RecycelerViewShow extends RecyclerView.Adapter<RecycelerViewShow.MyViewHolder> {
+public class RecyclerViewShow extends RecyclerView.Adapter<RecyclerViewShow.MyViewHolder> {
 
     private Context mContext ;
     private List<Book> mData ;
 
 
-    public RecycelerViewShow(Context mContext, List<Book> mData) {
+    public RecyclerViewShow(Context mContext, List<Book> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }

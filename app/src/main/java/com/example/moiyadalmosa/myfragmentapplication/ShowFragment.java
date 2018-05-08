@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class showFragment extends Fragment {
+public class ShowFragment extends Fragment {
 
     MainActivity mainActivity;
 
@@ -33,15 +33,9 @@ public class showFragment extends Fragment {
 
         textView.setText(mainActivity.getName());
 
-        mainActivity.addBook(new Book("koashjfg","Categorie Book","Description book",R.drawable.thevigitarian));
-        mainActivity.addBook(new Book("koashjfg","Categorie Book","Description book",R.drawable.thevigitarian));
-        mainActivity.addBook(new Book("koashjfg","Categorie Book","Description book",R.drawable.thevigitarian));
-
-
-
 
         RecyclerView myrv = view.findViewById(R.id.recycel_view2);
-        RecycelerViewShow myAdapter = new RecycelerViewShow(getContext(),mainActivity.getBookList());
+        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getContext(),mainActivity.getBookList());
         myrv.setLayoutManager(new GridLayoutManager(getContext(),2));
         myrv.setAdapter(myAdapter);
 

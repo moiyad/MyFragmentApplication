@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/ic_launcher_background"
+    android:background="@drawable/background_image"
     tools:context=".MainActivity">
 
     <TextView
@@ -16,7 +16,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="𝔄𝔭𝔭𝔩𝔦𝔠𝔞𝔱𝔦𝔬𝔫"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="30dp"
+        android:paddingLeft="135dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
@@ -27,27 +30,29 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="195dp"
-        android:layout_height="57dp"
+        android:layout_width="236dp"
+        android:layout_height="74dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:paddingLeft="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/image" />
+        app:srcCompat="@drawable/logoimage" />
 
 
     <FrameLayout
         android:layout_margin="10dp"
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="433dp"
-        android:background="@color/cardview_shadow_start_color">
+        android:layout_height="300dp"
+        android:background="#66FFFFFF"
+        >
 
     </FrameLayout>
 </LinearLayout>

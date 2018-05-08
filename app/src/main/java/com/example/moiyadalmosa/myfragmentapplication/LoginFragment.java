@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class loginFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     MainActivity mainActivity;
 
@@ -33,12 +33,10 @@ public class loginFragment extends Fragment {
 
 
 
-
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new interestFragment(),"interest").commit();
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout,new InterestFragment(),"interest").commit();
                 mainActivity.setName(String.valueOf(name.getText()));
             }
         });
